@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Drawing</title>
+  </head>
+  <body>
+    <canvas id="drawing" width="400" height="400"></canvas>
+    <br />
+    <button type="button" onclick="draw()">Draw</button>
+    <script>
+      function draw() {
+        const canvas = document.getElementById("drawing");
+        const ctx = canvas.getContext("2d");
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        ctx.arc(
+          Math.random() * canvas.width,
+          Math.random() * canvas.height,
+          Math.random() * 50 + 50,
+          0,
+          2 * Math.PI
+        );
+        ctx.fillStyle = `rgb(${Math.random() * 255}, ${Math.random() *
+          255}, ${Math.random() * 255})`;
+        ctx.fill();
+      }
+    </script>
+  </body>
+</html>
