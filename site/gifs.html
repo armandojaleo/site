@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random GIF</title>
+  </head>
+  <body>
+    <div id="gif"></div>
+    <br />
+    <button type="button" onclick="getGif()">Show GIF</button>
+    <script>
+      async function getGif() {
+        const response = await fetch(
+          "https://api.giphy.com/v1/gifs/random?api_key=kprlY02sHuOmYlEPcXkmlpsKAyccE9OD&tag=funny"
+        );
+        const data = await response.json();
+        const gifUrl = data.data.image_url;
+        document.getElementById("gif").innerHTML = `<img src="${gifUrl}" />`;
+      }
+    </script>
+  </body>
+</html>
